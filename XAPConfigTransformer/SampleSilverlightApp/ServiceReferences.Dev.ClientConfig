@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+
+<!-- For more information on using web.config transformation visit http://go.microsoft.com/fwlink/?LinkId=125889 -->
+
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+
+  <system.serviceModel>
+        <client>
+            <endpoint address="http://transformedUrl.com"
+                binding="basicHttpBinding" 
+                bindingConfiguration="BasicHttpBinding_IService1"
+                contract="SampleService.IService1" 
+                name="BasicHttpBinding_IService1"
+                xdt:Transform="SetAttributes" 
+                xdt:Locator="Match(name)" />
+        </client>
+    </system.serviceModel>
+  
+</configuration>

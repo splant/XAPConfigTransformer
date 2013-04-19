@@ -1,0 +1,25 @@
+<Project DefaultTargets="Transform" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--There is a bug with this version of MSBuild 4 that means if you do not copy the x.config file to
+    a temp location it fails as the file is open and so cannot overwrite itself-->
+  <PropertyGroup>
+    <ConfigFileName></ConfigFileName>
+    <TransformingConfigFileBasePath></TransformingConfigFileBasePath>
+    <TransformInputFile>$(TransformingConfigFileBasePath)\$(ConfigFileName).ClientConfig</TransformInputFile>
+    <TransformFile>$(TransformingConfigFileBasePath)\$(ConfigFileName).$(Configuration).ClientConfig</TransformFile>
+    <TransformOutputFile>$(TransformingConfigFileBasePath)\$(ConfigFileName).ClientConfig</TransformOutputFile>
+    <TransformTempConfig>$(TransformingConfigFileBasePath)\Temp$(ConfigFileName).ClientConfig</TransformTempConfig>
+  </PropertyGroup>  
+
+  <UsingTask TaskName="TransformXml"
+             AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.Tasks.dll"/>
+
+  <Target Name="Transform">
+    <Message Text="=== TRANSFORM THE CONFIGURATION FILE ===" />
+    <Copy SourceFiles="$(TransformInputFile)" DestinationFiles="$(TransformTempConfig)" />
+    <TransformXml Source="$(TransformTempConfig)"
+                  Transform="$(TransformFile)"
+                  Destination="$(TransformOutputFile)" />
+  </Target>
+  
+</Project>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>XAPConfigTransformer</title>
+    <authors>Hymans Robertson LLP</authors>
+    <owners>Hymans Robertson LLP</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Can perform configuration transforms on the ServiceReferences.ClientConfig file in a XAP</description>
+    <copyright>Copyright 2013</copyright>
+    <tags>XAPConfigTransformer config transform service references clientconfig xap</tags>
+  </metadata>
+
+  <files>
+    <file src="bin\$configuration$\PerformSilverlightConfigTransform.Proj" target="lib\net40\" />
+  </files>
+</package>
