@@ -9,7 +9,7 @@ namespace XAPConfigTransformer
 {
     public class MsBuildConfigTransform
     {
-        //test comment
+        //test comment - additional item
         public void ExecuteTransformation(string targetEnvironment, string configFilesLocation)
         {
             using (var projectCollection = new ProjectCollection())
